@@ -3,6 +3,7 @@ package com.sanemaniac.gameconnect3;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -43,6 +44,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        for (int[] winningPosition : winningPositions) {
+            if (gameState[winningPosition[0]] == gameState[winningPosition[1]] &&
+                gameState[winningPosition[1]] == gameState[winningPosition[2]] &&
+                gameState[winningPosition[0]] != 2) {
+                String winner;
+                if(player == 1) {
+                    winner = "Blue";
+                } else {
+                    winner = "Yellow";
+                }
+                Toast.makeText(this, winner + " has won", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
 
